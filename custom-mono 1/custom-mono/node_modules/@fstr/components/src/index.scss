@@ -1,0 +1,209 @@
+$loop-size : 25;
+$rem-size : 0.125;
+$width : 25,
+50,
+75,
+100;
+
+:root {
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+    --success: #198754;
+    --danger: #e1444d;
+    --warning: #ffc107;
+    --info: #0dcaf0;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --link: #0d6efd;
+    --white: #fff;
+    --black: #000;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.3em;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.btn {
+    background-color: unset;
+    padding: 0;
+    border: 0px;
+    outline: unset;
+    border-radius: 0px;
+    color: unset;
+    line-height: unset;
+    cursor: pointer;
+}
+
+@mixin common-css($prefix: '') {
+
+    // colors
+    .#{$prefix}primary-color {
+      color: var(--primary)
+    }
+  
+    .#{$prefix}secondary-color {
+      color: var(--secondary)
+    }
+  
+    .#{$prefix}success-color {
+      color: var(--success)
+    }
+  
+    .#{$prefix}danger-color {
+      color: var(--danger)
+    }
+  
+    .#{$prefix}warning-color {
+      color: var(--warning)
+    }
+  
+    .#{$prefix}info-color {
+      color: var(--info)
+    }
+  
+    .#{$prefix}dark-color {
+      color: var(--dark)
+    }
+  
+    .#{$prefix}link-color {
+      color: var(--link)
+    }
+  
+    .#{$prefix}white-color {
+      color: var(--white)
+    }
+  
+    // BG color
+    .#{$prefix}primary-bg {
+      background-color: var(--primary)
+    }
+  
+    .#{$prefix}secondary-bg {
+      background-color: var(--secondary)
+    }
+  
+    .#{$prefix}success-bg {
+      background-color: var(--success)
+    }
+  
+    .#{$prefix}danger-bg {
+      background-color: var(--danger)
+    }
+  
+    .#{$prefix}warning-bg {
+      background-color: var(--warning)
+    }
+  
+    .#{$prefix}info-bg {
+      background-color: var(--info)
+    }
+  
+    .#{$prefix}dark-bg {
+      background-color: var(--dark)
+    }
+  
+    .#{$prefix}link-bg {
+      background-color: var(--link)
+    }
+  
+    .#{$prefix}white-bg {
+      background-color: var(--white)
+    }
+  
+    // width
+    @each $i in $width {
+      .#{$prefix}w-#{$i} {
+        width: $i+#{'%'};
+      }
+    }
+  
+    @for $i from 1 through $loop-size {
+      // padding
+      .#{$prefix}pt-#{$i} {
+        padding-top: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}pb-#{$i} {
+        padding-bottom: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}pl-#{$i} {
+        padding-left: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}pr-#{$i} {
+        padding-right: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}p-#{$i} {
+        padding-right: ($i * $rem-size) + rem;
+      }
+
+      .#{$prefix}py-#{$i} {
+        padding-bottom: ($i * $rem-size) + rem;
+        padding-top: ($i * $rem-size) + rem;
+      }
+
+      .#{$prefix}px-#{$i} {
+        padding-left: ($i * $rem-size) + rem;
+        padding-right: ($i * $rem-size) + rem;
+      }
+  
+      // margin 
+      .#{$prefix}mt-#{$i} {
+        margin-top: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}mb-#{$i} {
+        margin-bottom: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}ml-#{$i} {
+        margin-left: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}mr-#{$i} {
+        margin-right: ($i * $rem-size) + rem;
+      }
+  
+      .#{$prefix}m-#{$i} {
+        margin: ($i * $rem-size) + rem;
+      }
+    }
+  
+    // border
+    .#{$prefix}border-danger {
+      border: 1px solid var(--danger)
+    }
+  
+    .#{$prefix}border-info {
+      border: 1px solid var(--info)
+    }
+  }
+  
+  @include common-css();
+  
+  @media (min-width: 768px) {
+    @include common-css('md-');
+  }
+  
+  @media (min-width: 1025px) {
+    @include common-css('xl-');
+  }
+  
+  @media (min-width: 1280px) {
+    @include common-css('xxl-');
+  }
